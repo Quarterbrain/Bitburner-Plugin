@@ -5,11 +5,10 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 
-val extensions = arrayListOf("js", "script", "ns", "txt")
+val extensions = arrayListOf("js", "script", "ns", "ts", "txt")
 class BitburnerActionGroup : ActionGroup() {
     private val projectViewPopup = "ProjectViewPopup"
     private val editorPopup = "EditorPopup"
-
 
     override fun getChildren(e: AnActionEvent?): Array<AnAction> {
         var actions = emptyArray<AnAction>()
@@ -21,7 +20,6 @@ class BitburnerActionGroup : ActionGroup() {
         }
         return actions
     }
-
 
     fun append(arr: Array<AnAction>, element: AnAction): Array<AnAction> {
         val list: MutableList<AnAction> = arr.toMutableList()

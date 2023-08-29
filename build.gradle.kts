@@ -17,6 +17,24 @@ plugins {
     id("org.jetbrains.qodana") version "0.1.13"
     // Dependency Updates
     id("com.github.ben-manes.versions") version "0.46.0"
+    kotlin("plugin.serialization") version "1.8.10"
+}
+
+dependencies {
+    //ktor server
+    implementation("io.ktor:ktor-server-core:${properties("ktor_version")}")
+    implementation("io.ktor:ktor-server-netty:${properties("ktor_version")}")
+    implementation("io.ktor:ktor-server-websockets:${properties("ktor_version")}")
+    implementation("ch.qos.logback:logback-classic:${properties("logback_version")}")
+    testImplementation("io.ktor:ktor-server-test-host:${properties("ktor_version")}")
+
+    //ktor client
+    implementation("io.ktor:ktor-client-core:${properties("ktor_version")}")
+    implementation("io.ktor:ktor-client-cio:${properties("ktor_version")}")
+    implementation("io.ktor:ktor-client-websockets:${properties("ktor_version")}")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:${properties("ktor_version")}")
+
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:${properties("kotlin_version")}")
 }
 
 group = properties("pluginGroup")
